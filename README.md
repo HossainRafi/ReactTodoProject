@@ -1,1 +1,1 @@
-### React App Setup With Tailwind CSS
+### React TODO app with Tailwind CSS
