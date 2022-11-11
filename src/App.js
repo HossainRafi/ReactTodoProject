@@ -1,4 +1,10 @@
-import React, { useState } from "react";
+import {
+  collection,
+  onSnapshot,
+  query,
+} from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { db } from "./firebase";
 import Todo from "./Todo";
 
 const style = {
@@ -12,7 +18,30 @@ const style = {
 };
 
 function App() {
-  const [todos, setTodos] = useState(["Learn React", "Grind Leetcode"]);
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState("");
+
+  // Create todo
+
+
+  // Read todo from firebase
+  useEffect(() => {
+    const q = query(collection(db, "todos"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let todosArr = [];
+      querySnapshot.forEach((doc) => {
+        todosArr.push({ ...doc.data(), id: doc.id });
+      });
+      setTodos(todosArr);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  // Update todo in firebase
+
+
+  // Delete todo
+
 
   return (
     <div className={style.bg}>
@@ -27,8 +56,6 @@ function App() {
             <Todo
               key={index}
               todo={todo}
-              // toggleComplete={toggleComplete}
-              // deleteTodo={deleteTodo}
             />
           ))}
         </ul>
