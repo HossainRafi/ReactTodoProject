@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import Todo from "./Todo";
 import { db } from "./firebase";
 import {
@@ -17,10 +18,9 @@ const style = {
   heading: `text-3xl font-bold text-center text-gray-800 px-2 pb-8`,
   form: `flex justify-between`,
   input: `border-2 focus:outline-none border-r-0 rounded-l-md border-gray-500 px-3 py-2 w-full text-md`,
-  button: `border-2 rounded-r-md border-gray-500 px-5 py-2 bg-violet-800 text-slate-100 font-bold`,
+  button: `border-2 focus:outline-none rounded-r-md border-gray-500 px-5 py-2 bg-violet-800 text-slate-100 font-bold`,
   count: `text-center pt-8 pb-1 text-gray-800 font-bold`,
 };
-
 function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
@@ -29,7 +29,7 @@ function App() {
   const createTodo = async (e) => {
     e.preventDefault(e);
     if (input === "") {
-      alert("Please enter a valid todo");
+      toast.error("Please add a Todo !!");
       return;
     }
     await addDoc(collection(db, "todos"), {
@@ -94,6 +94,7 @@ function App() {
           ))}
         </ul>
       </div>
+      <Toaster />;
     </div>
   );
 }
