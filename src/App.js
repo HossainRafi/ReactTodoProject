@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Todo from "./Todo";
 
 const style = {
   bg: `h-screen w-screen p-4 bg-gradient-to-r from-[#2F80ED] to-[#1CB5E0]`,
@@ -11,6 +12,8 @@ const style = {
 };
 
 function App() {
+  const [todos, setTodos] = useState([]);
+
   return (
     <div className={style.bg}>
       <div className={style.container}>
@@ -19,6 +22,16 @@ function App() {
           <input className={style.input} type="text" placeholder="Add Todo" />
           <button className={style.button}>Add</button>
         </form>
+        <ul>
+          {todos.map((todo, index) => (
+            <Todo
+              key={index}
+              todo={todo}
+              // toggleComplete={toggleComplete}
+              // deleteTodo={deleteTodo}
+            />
+          ))}
+        </ul>
       </div>
     </div>
   );
