@@ -20,7 +20,10 @@ const Todo = ({ todo, toggoleComplete }) => {
             type="checkbox"
             checked={todo.completed ? "checked" : ""}
           />
-          <p className={todo.completed ? style.textComplete : style.text}>
+          <p
+            onClick={() => toggoleComplete(todo)}
+            className={todo.completed ? style.textComplete : style.text}
+          >
             {todo.text}
           </p>
         </div>
