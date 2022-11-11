@@ -12,7 +12,7 @@ import {
 } from "firebase/firestore";
 
 const style = {
-  bg: `h-screen w-screen p-4 bg-gradient-to-r from-[#130f40] to-[#30336b]`,
+  bg: `min-h-screen min-w-full p-4 bg-gradient-to-r from-[#130f40] to-[#30336b]`,
   container: `bg-blue-500 max-w-[500px] w-full m-auto rounded-md shadow-xl p-4`,
   heading: `text-3xl font-bold text-center text-gray-800 px-2 pb-8`,
   form: `flex justify-between`,
@@ -78,6 +78,11 @@ function App() {
           />
           <button className={style.button}>Add</button>
         </form>
+        {todos.length < 1 ? null : (
+          <p
+            className={style.count}
+          >{`You Have " ${todos.length} " Todo(s)`}</p>
+        )}
         <ul>
           {todos.map((todo, index) => (
             <Todo
@@ -88,11 +93,6 @@ function App() {
             />
           ))}
         </ul>
-        {todos.length < 1 ? null : (
-          <p
-            className={style.count}
-          >{`You Have " ${todos.length} " Todo(s)`}</p>
-        )}
       </div>
     </div>
   );
