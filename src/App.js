@@ -1,8 +1,4 @@
-import {
-  collection,
-  onSnapshot,
-  query,
-} from "firebase/firestore";
+import { collection, doc, onSnapshot, query, updateDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "./firebase";
 import Todo from "./Todo";
@@ -23,7 +19,6 @@ function App() {
 
   // Create todo
 
-
   // Read todo from firebase
   useEffect(() => {
     const q = query(collection(db, "todos"));
@@ -38,10 +33,13 @@ function App() {
   }, []);
 
   // Update todo in firebase
-
+  const toggleComplete = async (todo) => {
+    await updateDoc(doc(db, "todos", todo.id), {
+      completed: !todo.completed,
+    });
+  };
 
   // Delete todo
-
 
   return (
     <div className={style.bg}>
@@ -53,10 +51,7 @@ function App() {
         </form>
         <ul>
           {todos.map((todo, index) => (
-            <Todo
-              key={index}
-              todo={todo}
-            />
+            <Todo key={index} todo={todo} />
           ))}
         </ul>
         {todos.length < 1 ? null : (
