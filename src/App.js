@@ -14,11 +14,11 @@ import {
 const style = {
   bg: `min-h-screen min-w-full p-4 bg-gradient-to-r from-[#130f40] to-[#30336b]`,
   container: `bg-blue-500 max-w-[500px] w-full m-auto rounded-md shadow-xl p-4`,
-  heading: `text-3xl font-bold text-center text-gray-800 px-2 pb-8`,
+  heading: `text-3xl font-bold text-center text-gray-100 px-2 pb-8`,
   form: `flex justify-between`,
   input: `border-2 focus:outline-none border-r-0 rounded-l-md border-gray-500 px-3 py-2 w-full text-md`,
   button: `border-2 rounded-r-md border-gray-500 px-5 py-2 bg-purple-500 text-slate-100 font-bold`,
-  count: `text-center p-2 font-bold text-violet-700`,
+  count: `text-center pt-8 font-bold`,
 };
 
 function App() {
