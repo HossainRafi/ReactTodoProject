@@ -7,12 +7,12 @@ const style = {
   heading: `text-3xl font-bold text-center text-gray-800 p-2`,
   form: `flex justify-between`,
   input: `border p-2 w-full text-xl`,
-  button: `border p-4 ml-2 bg-purple-500 text-slate-100`,
+  button: `border py-4 px-8 ml-2 bg-purple-500 text-slate-100`,
   count: `text-center p-2`,
 };
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(["Learn React", "Grind Leetcode"]);
 
   return (
     <div className={style.bg}>
@@ -33,7 +33,7 @@ function App() {
           ))}
         </ul>
         {todos.length < 1 ? null : (
-          <p className={style.count}>{`You have ${todos.length} todos`}</p>
+          <p className={style.count}>{`You Have "${todos.length}" Todo(s)`}</p>
         )}
       </div>
     </div>
