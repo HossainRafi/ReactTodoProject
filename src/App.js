@@ -1,4 +1,12 @@
-import { addDoc, collection, doc, onSnapshot, query, updateDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  query,
+  updateDoc,
+} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "./firebase";
 import Todo from "./Todo";
@@ -52,6 +60,9 @@ function App() {
   };
 
   // Delete todo
+  const deleteTodo = async (id) => {
+    await deleteDoc(doc(db, "todos", id));
+  };
 
   return (
     <div className={style.bg}>
@@ -65,9 +76,7 @@ function App() {
             type="text"
             placeholder="Add Todo"
           />
-          <button className={style.button}>
-            Add
-          </button>
+          <button className={style.button}>Add</button>
         </form>
         <ul>
           {todos.map((todo, index) => (
@@ -75,6 +84,7 @@ function App() {
               key={index}
               todo={todo}
               toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
             />
           ))}
         </ul>
