@@ -94,7 +94,7 @@ function App() {
           ))}
         </ul>
       </div>
-      <Toaster />;
+      <Toaster />
     </div>
   );
 }
