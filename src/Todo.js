@@ -2,8 +2,8 @@ import React from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 const style = {
-  li: `flex justify-between bg-slate-200 p-4 my-2 capitalize`,
-  liComplete: `flex justify-between bg-slate-400 p-4 my-2 capitalize`,
+  li: `flex justify-between bg-slate-300 p-3 my-3 capitalize rounded-md`,
+  liComplete: `flex justify-between bg-slate-400 p-3 my-3 capitalize rounded-md`,
   row: `flex`,
   text: `ml-2 cursor-pointer`,
   textComplete: `ml-2 cursor-pointer line-through`,
@@ -26,7 +26,12 @@ const Todo = ({ todo, toggleComplete, deleteTodo }) => {
           {todo.text}
         </p>
       </div>
-      <button onClick={() => deleteTodo(todo.id)}>{<FaRegTrashAlt />}</button>
+      <button
+        className="text-red-700"
+        onClick={() => deleteTodo(todo.id)}
+      >
+        {<FaRegTrashAlt />}
+      </button>
     </li>
   );
 };
