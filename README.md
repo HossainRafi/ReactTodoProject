@@ -1,4 +1,4 @@
-# Project Name: [What To-Do](https://react-what-todo.netlify.app)
+# Project Name: [WhatToDo](https://react-what-todo.netlify.app)
 
 ## Project Live Link: https://react-what-todo.netlify.app
 
