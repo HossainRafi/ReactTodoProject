@@ -6,4 +6,3 @@
 - React.js
 - Tailwind CSS
 - React Icons
-- Firebase
