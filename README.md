@@ -2,5 +2,5 @@
 
 ## Project Live Link: https://react-what-todo.netlify.app
 
-### Technology Used:
+
 
