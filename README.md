@@ -4,4 +4,3 @@
 
 ### Technology Used:
 - React.js
-- Tailwind CSS
