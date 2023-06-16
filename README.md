@@ -5,4 +5,3 @@
 ### Technology Used:
 - React.js
 - Tailwind CSS
-- React Icons
